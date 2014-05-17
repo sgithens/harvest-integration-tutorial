@@ -1,4 +1,4 @@
-h1 harvest-integration-tutorial
+# harvest-integration-tutorial
 
 A tutorial on how to add Harvest functionality to an existing web application.
 
@@ -12,7 +12,7 @@ familiarity with Django development and python development ( you know how
 to use virtualenv and pip ). It does not assume you've used backbone,
 marionette, or any of the python frameworks harvest depends on.
 
-h2. A quick overview
+## A quick overview
 
 If you've read some of the harvest documents or tutorials you may have a 
 sense of how all the components work. But before we dive in too deeply
@@ -38,7 +38,7 @@ Harvest in to your django application.
   shown up.)
 * At this point you should be able to explore your data!
 
-h2. Install the python dependencies
+## Install the python dependencies
 
 Harvest is a fast moving project, and it's built for customization
 so I'll show how to install the prepackaged code, and how to fetch
@@ -47,7 +47,7 @@ because it's moving fast, I'll leave out version numbers for the
 rest of this document, and just assume they are somewhat recent
 from 2nd quarter 2014.
 
-h3. Fast Way
+### Fast Way
 
 You should be able to just run
 
@@ -56,22 +56,22 @@ You should be able to just run
 which should be at the top of the dependency chain and will fetch
 all the rest of the dependencies.
 
-h3. For development, debugging, and tinkering
+### For development, debugging, and tinkering
 
 TODO
 
-h2. Install the HTML5 deps
+## Install the HTML5 deps
 
-h3. The fast way
+### The fast way
 
 From the cilantro release github page, download the latest release
 untargzip it, and put it in your django static area.
 
-h3. For development
+### For development
 
 TODO
 
-h2. Add to Installed Apps
+## Add to Installed Apps
 
 In the appropriate settings.py for your setup, add these 4 entries
 to your INSTALLED_APP. ( You may already have south from other 
@@ -84,7 +84,7 @@ apps )
         'modeltree',
     )
 
-h2. Add the modeltree
+## Add the modeltree
 
 Your root model tree will be the Django model/table with the primary
 key you want mounted and relationships traversed for all the searches.
@@ -107,7 +107,7 @@ a heads up.
 
 TODO Multiple model trees.
 
-h2. Include the Serrano endpoints
+## Include the Serrano endpoints
 
 All communication with Harvest on the server happens through RESTful
 web services in the Serrano module, and so you need to include it in
@@ -115,7 +115,7 @@ at least one of the urls.py of your project.
 
     url(r'^serrano/', include('serrano.urls')),
 
-h2. Add urls for query, results, workspace
+## Add urls for query, results, workspace
 
 In one of your apps you'll want to create these urls. In theory,
 if you know how to use backbone routes and marionnete you can 
@@ -133,7 +133,7 @@ at any one of them to start out.
 Just to clarify, you can call your view whatever you'd like,
 it's just important that the urls be query, results, and workspace.
 
-h2. Create a template for them
+## Create a template for them
 
 Next you'll create a template for the above urls and a bare-ish
 view for them. At the time of writing, cilantro uses bootstrap2. 
@@ -204,13 +204,13 @@ Something like:
         return render(request, 'ktb/harvest.html', {})
 
 
-h2. Add database tables.
+## Add database tables.
 
 Next use south's migrate to add the avocado and serrano tables.
 
     python manage.py migrate
 
-h2. Add Avocado metadata
+## Add Avocado metadata
 
 Avocado comes with a command to add some initial metadata for your app.
 
@@ -219,8 +219,8 @@ Avocado comes with a command to add some initial metadata for your app.
 TODO more desc on what this actually does and to leave off prefix's if your
 app has dots in the name
 
-h2. Add default view, context, and category
+## Add default view, context, and category
 
-h2. The future  
+## The future  
 
 Navigate to your query url!
