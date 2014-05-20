@@ -4,13 +4,19 @@ A tutorial on how to add Harvest functionality to an existing web application.
 
 This is meant to act as a complete guide on how to integrate Harvest into an
 existing Django application, with all the nuts and bolts steps. Harvest is
-an incredibly useful library for exploring your data, however, it does have
+an incredibly useful library for exploring your data, however, it can have
 a lot of moving parts so the initial experience of putting it into an 
 existing application (ie. not using the harvest init wizard for a new app)
 can be a bit daunting at first. These instructions will assume a basic
 familiarity with Django development and python development ( you know how
 to use virtualenv and pip ). It does not assume you've used backbone,
 marionette, or any of the python frameworks harvest depends on.
+
+Harvest is a fast moving application though, and because it's built for
+customization, you may want to install things so that you can do development
+against new versions and forks from github.  This includes both the python
+modules, and uncompressed/uncompiled versions of the javascript, css,
+and front end materials.
 
 ## A quick overview
 
@@ -19,9 +25,7 @@ sense of how all the components work. But before we dive in too deeply
 here is a basic overview of the steps you need to go through to add
 Harvest in to your django application.
 
-* Install the python deps. This includes Modeltree, Avocado, Serrano, 
-  and some small but really useful python libraries Byron has written, 
-  that you'll likely want to use else where once you see them.
+* Install the python deps. This includes Modeltree, Avocado, and Serrano.
 * Install the HTML5 deps. This just consists of cilantro.
 * Add the harvest Django apps to settings.py
 * Add the modeltree config to settings.py
@@ -40,15 +44,6 @@ Harvest in to your django application.
 
 ## Install the python dependencies
 
-Harvest is a fast moving project, and it's built for customization
-so I'll show how to install the prepackaged code, and how to fetch
-everything if you want to do development, tinker, and debug. Also,
-because it's moving fast, I'll leave out version numbers for the
-rest of this document, and just assume they are somewhat recent
-from 2nd quarter 2014.
-
-### Fast Way
-
 You should be able to just run
 
     pip install serrano
@@ -56,20 +51,10 @@ You should be able to just run
 which should be at the top of the dependency chain and will fetch
 all the rest of the dependencies.
 
-### For development, debugging, and tinkering
-
-TODO
-
 ## Install the HTML5 deps
-
-### The fast way
 
 From the cilantro release github page, download the latest release
 untargzip it, and put it in your django static area.
-
-### For development
-
-TODO
 
 ## Add to Installed Apps
 
